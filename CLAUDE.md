@@ -77,7 +77,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_KxXv0T9PS8z5QV21ZpHDBA_XGmJ6
 
 ### 고수준 구조
 
-**Next.js 15 + Supabase + shadcn/ui** 기반 이벤트 관리 앱입니다. 인증 시스템은 완성되어 있으며, 이벤트 관리 기능은 기획 단계입니다.
+**Next.js 16 + Supabase + shadcn/ui** 기반 이벤트 관리 앱입니다. 인증 시스템은 완성되어 있으며, 이벤트 관리 기능은 기획 단계입니다.
 
 ### 인증 흐름
 
