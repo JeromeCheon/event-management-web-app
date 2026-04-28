@@ -1,10 +1,8 @@
 "use client";
 
 import { useActionState } from "react";
-import { updateProfile } from "@/lib/actions/profile";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
@@ -12,8 +10,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import type { Profile, ActionResult } from "@/types/database";
+import { updateProfile } from "@/lib/actions/profile";
+import type { ActionResult, Profile } from "@/types/database";
 
 interface ProfileFormProps {
   profile: Profile;
@@ -117,7 +118,7 @@ export function ProfileForm({ profile }: ProfileFormProps) {
             {/* 역할 뱃지 (읽기 전용) */}
             <div className="grid gap-2">
               <Label>역할</Label>
-              <p className="text-sm text-muted-foreground capitalize">
+              <p className="text-sm capitalize text-muted-foreground">
                 {profile.role}
               </p>
             </div>

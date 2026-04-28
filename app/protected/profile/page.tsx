@@ -1,7 +1,9 @@
-import { getMyProfile } from "@/lib/actions/profile";
+import Image from "next/image";
+import { Suspense } from "react";
+
 import { ProfileForm } from "@/components/profile-form";
 import { Badge } from "@/components/ui/badge";
-import { Suspense } from "react";
+import { getMyProfile } from "@/lib/actions/profile";
 
 async function ProfileContent() {
   const profile = await getMyProfile();
@@ -11,13 +13,15 @@ async function ProfileContent() {
       {/* 프로필 요약 헤더 */}
       <div className="flex items-center gap-4">
         {profile.avatar_url ? (
-          <img
+          <Image
             src={profile.avatar_url}
             alt={profile.display_name ?? "프로필 이미지"}
-            className="w-16 h-16 rounded-full object-cover border"
+            width={64}
+            height={64}
+            className="rounded-full border object-cover"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center text-2xl font-semibold text-muted-foreground">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted text-2xl font-semibold text-muted-foreground">
             {(profile.display_name ?? profile.email)[0].toUpperCase()}
           </div>
         )}
@@ -25,7 +29,7 @@ async function ProfileContent() {
           <h1 className="text-2xl font-bold">
             {profile.display_name ?? profile.email}
           </h1>
-          <div className="flex items-center gap-2 mt-1">
+          <div className="mt-1 flex items-center gap-2">
             <Badge variant="secondary" className="capitalize">
               {profile.role}
             </Badge>

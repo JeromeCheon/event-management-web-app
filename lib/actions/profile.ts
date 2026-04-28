@@ -1,8 +1,9 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import type { Profile, ProfileUpdate, ActionResult } from "@/types/database";
+
+import { createClient } from "@/lib/supabase/server";
+import type { ActionResult, Profile, ProfileUpdate } from "@/types/database";
 
 export async function getMyProfile(): Promise<Profile> {
   const supabase = await createClient();
